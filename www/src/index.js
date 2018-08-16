@@ -1,14 +1,21 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import router from './router';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-Vue.use(VueRouter);
+import router from './router';
+import store from './store/store';
 
 new Vue({
   el: '#app',
   router,
+  store,
   data: {
-    title: 'Budget'
+    title: 'BUDGET',
+  },
+  computed:{
+    logged:()=>{
+      return store.getters.isLogged;
+    }
   },
   methods:{
     herp:() => {
